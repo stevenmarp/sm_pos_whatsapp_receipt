@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sm_pos_whatsapp_receipt.WhatsAppButton" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('sending-receipt-management')]" position="inside">
+            <button class="btn btn-success btn-lg lh-lg rounded-2 send-receipt-whatsapp"
+                    t-att-disabled="!isValidPhone"
+                    t-on-click="() => this.actionSendReceiptOnWhatsApp()">
+                <i class="fa fa-whatsapp me-1" role="img" aria-label="WhatsApp" title="Send via WhatsApp"/>WhatsApp
+            </button>
+        </xpath>
+    </t>
+</templates>
