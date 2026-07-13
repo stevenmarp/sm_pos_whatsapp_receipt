@@ -20,7 +20,7 @@ odoo.define('sm_pos_whatsapp_receipt.whatsapp_button', function (require) {
 
             _waReceiptText() {
                 const order = this.currentOrder;
-                const fmt = this.env.pos.format_currency;
+                const fmt = (val) => this.env.pos.format_currency(val);
                 const lines = order.get_orderlines().map(
                     (l) => `${l.get_quantity()} x ${l.get_full_product_name()}  ${fmt(l.get_all_prices().priceWithTax)}`
                 );

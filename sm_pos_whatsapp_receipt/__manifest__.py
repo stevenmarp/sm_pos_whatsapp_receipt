@@ -33,6 +33,8 @@ message containing store name, receipt number, order lines and total.
     "assets": {
         "point_of_sale.assets": [
             "sm_pos_whatsapp_receipt/static/src/receipt_screen/whatsapp_button.js",
+        ],
+        "web.assets_qweb": [
             "sm_pos_whatsapp_receipt/static/src/receipt_screen/whatsapp_button.xml",
         ],
     },
