@@ -1,10 +1,16 @@
+/** @odoo-module **/
+
 import { _t } from "@web/core/l10n/translation";
 import { ReceiptScreen } from "@point_of_sale/app/screens/receipt_screen/receipt_screen";
 import { patch } from "@web/core/utils/patch";
+import { useService } from "@web/core/utils/hooks";
 
 patch(ReceiptScreen.prototype, {
-    showPhoneInput() {
-        return true;
+    setup() {
+        super.setup();
+        this.notification = useService("pos_notification");
+        const partner = this.currentOrder.get_partner();
+        this.orderUiState.inputPhone = this.orderUiState.inputPhone || (partner && partner.phone) || (partner && partner.mobile) || "";
     },
 
     _whatsappCountryCode() {
@@ -32,7 +38,7 @@ patch(ReceiptScreen.prototype, {
     },
 
     actionSendReceiptOnWhatsApp() {
-        let phone = (this.state.phone || "").replace(/\D/g, "");
+        let phone = (this.orderUiState.inputPhone || "").replace(/\D/g, "");
         const cc = this._whatsappCountryCode();
         if (phone.startsWith("0") && !cc) {
             this.notification.add(
