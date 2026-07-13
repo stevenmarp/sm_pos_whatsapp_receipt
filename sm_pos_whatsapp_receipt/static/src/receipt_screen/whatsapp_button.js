@@ -21,7 +21,7 @@ patch(ReceiptScreen.prototype, {
 
     _waReceiptText() {
         const order = this.currentOrder;
-        const fmt = this.env.utils.formatCurrency;
+        const fmt = (val) => this.env.utils.formatCurrency(val);
         const lines = order.get_orderlines().map(
             (l) => `${l.get_quantity()} x ${l.get_full_product_name()}  ${fmt(l.get_all_prices().priceWithTax)}`
         );
