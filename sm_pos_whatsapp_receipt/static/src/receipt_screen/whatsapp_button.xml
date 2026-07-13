@@ -2,12 +2,11 @@
 <templates id="template" xml:space="preserve">
     <t t-name="sm_pos_whatsapp_receipt.WhatsAppButton" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
         <xpath expr="//form[hasclass('send-email')]" position="after">
-            <form class="send-whatsapp" t-on-submit.prevent="actionSendReceiptOnWhatsApp" style="margin-top: 10px;">
+            <form class="send-email" t-on-submit.prevent="actionSendReceiptOnWhatsApp" style="margin-top: 10px;">
+                <div class="email-icon" style="background: #25D366; color: white;"><i class="fa fa-whatsapp" aria-hidden="true"></i></div>
                 <div class="input-email">
                     <input type="text" placeholder="WhatsApp Number" t-model="orderUiState.inputPhone" />
-                    <button class="send highlight" type="submit" style="background: #25D366; color: white;">
-                        <i class="fa fa-whatsapp" aria-hidden="true"/>
-                    </button>
+                    <button class="send highlight" type="submit" style="background: #25D366; color: white;">Send</button>
                 </div>
             </form>
         </xpath>
