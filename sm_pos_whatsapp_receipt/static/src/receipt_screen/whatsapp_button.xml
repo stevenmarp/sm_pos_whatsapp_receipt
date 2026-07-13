@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    <t t-name="sm_pos_whatsapp_receipt.WhatsAppButton" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
+    <t t-name="sm_pos_whatsapp_receipt.WhatsAppButton" t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
         <xpath expr="//form[hasclass('send-email')]" position="after">
-            <div class="send-whatsapp d-flex mt-2">
-                <div class="input-whatsapp input-group">
-                    <input type="text" class="form-control py-3 bg-view" placeholder="WhatsApp: e.g. 08123456789" t-model="orderUiState.inputPhone" />
-                    <button class="send btn btn-success px-5" type="button" t-on-click="actionSendReceiptOnWhatsApp">
-                        <i class="fa fa-whatsapp" aria-hidden="true"/> Send via WhatsApp
+            <form class="send-whatsapp" t-on-submit.prevent="actionSendReceiptOnWhatsApp" style="margin-top: 10px;">
+                <div class="input-email">
+                    <input type="text" placeholder="WhatsApp Number" t-model="orderUiState.inputPhone" />
+                    <button class="send highlight" type="submit" style="background: #25D366; color: white;">
+                        <i class="fa fa-whatsapp" aria-hidden="true"/>
                     </button>
                 </div>
-            </div>
+            </form>
         </xpath>
     </t>
 </templates>

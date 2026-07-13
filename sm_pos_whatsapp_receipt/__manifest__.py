@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "POS WhatsApp Receipt",
-    "version": "17.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "summary": "Send POS receipts over WhatsApp with a ready receipt message from the payment success screen.",
     "description": """
@@ -31,7 +31,7 @@ message containing store name, receipt number, order lines and total.
     "depends": ["point_of_sale"],
     "data": [],
     "assets": {
-        "point_of_sale._assets_pos": [
+        "point_of_sale.assets": [
             "sm_pos_whatsapp_receipt/static/src/receipt_screen/whatsapp_button.js",
             "sm_pos_whatsapp_receipt/static/src/receipt_screen/whatsapp_button.xml",
         ],
