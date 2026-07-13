@@ -6,15 +6,15 @@ odoo.define('sm_pos_whatsapp_receipt.whatsapp_button', function (require) {
 
     const WhatsappReceiptScreen = (ReceiptScreen) =>
         class extends ReceiptScreen {
-            setup() {
-                super.setup();
-                const partner = this.currentOrder.get_partner();
-                this.orderUiState.inputPhone = this.orderUiState.inputPhone || (partner && partner.phone) || (partner && partner.mobile) || "";
+            constructor() {
+                super(...arguments);
+                const client = this.currentOrder.get_client();
+                this.orderUiState.inputPhone = this.orderUiState.inputPhone || (client && client.phone) || (client && client.mobile) || "";
             }
 
             _whatsappCountryCode() {
-                const partner = this.currentOrder.get_partner();
-                const country = partner?.country_id || this.env.pos.company.country_id;
+                const client = this.currentOrder.get_client();
+                const country = client?.country_id || this.env.pos.company.country_id;
                 return (country?.phone_code || "").toString().replace(/\D/g, "");
             }
 

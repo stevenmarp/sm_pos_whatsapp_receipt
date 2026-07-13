@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "POS WhatsApp Receipt",
-    "version": "16.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Point of Sale",
     "summary": "Send POS receipts over WhatsApp with a ready receipt message from the payment success screen.",
     "description": """
