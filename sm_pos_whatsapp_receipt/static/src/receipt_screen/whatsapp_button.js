@@ -27,7 +27,7 @@ patch(ReceiptScreen.prototype, {
         );
         return [
             `*${this.pos.company.name}*`,
-            `${_t("Receipt")}: ${order.pos_reference || order.getName()}`,
+            `${_t("Receipt")}: ${order.pos_reference || order.get_name()}`,
             "--------------------",
             ...lines,
             "--------------------",
